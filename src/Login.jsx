@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { IconBrandGoogle, IconBrandApple, IconBrandFacebook } from "@tabler/icons-react";
-import ForgotPasswordModal from "./src/Modals/ForgotPasswordModal";
-import ResetPasswordModal from "./src/Modals/ResetPasswordModal";
-import CheckEmailModal from "./src/Modals/CheckEmailModal";
-import PasswordChangedModal from "./src/Modals/PasswordChangedModal";
+import ForgotPasswordModal from "./Modals/ForgotPasswordModal";
+import ResetPasswordModal from "./Modals/ResetPasswordModal";
+import CheckEmailModal from "./Modals/CheckEmailModal";
+import PasswordChangedModal from "./Modals/PasswordChangedModal";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [modal, setModal] = useState(null);
-
+  const navigate = useNavigate();
   return (
     <div>
       {/* Header Section (Always Visible) */}
@@ -18,7 +19,7 @@ function Login() {
 
       {/* Login Form (Hidden When Modal is Open) */}
       {modal === null && (
-        <div className="flex flex-col justify-center items-center">
+        <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50 flex-col rounded-lg shadow-lg">
           <p className="text-xl font-bold">Login</p>
           <p className="text-gray-500">Enter your details to log in to your account.</p>
 
@@ -45,7 +46,7 @@ function Login() {
             </p>
           </div>
 
-          <button className="w-96 bg-[#151C39] text-white p-2 rounded-md mt-2">
+          <button  onClick={() => navigate('/dashboard')} className="w-96 bg-[#151C39] text-white p-2 rounded-md mt-2">
             Login
           </button>
 
