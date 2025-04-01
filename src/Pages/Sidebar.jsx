@@ -23,9 +23,9 @@ function Sidebar() {
     const currentPath = location.pathname.split("/").pop();
     const activeMenu = menuItems.find(item => item.path === currentPath)?.name || "Dashboard";
     setActiveItem(activeMenu);
-
-    // Redirect to /dashboard/cards if no valid menu item is selected
-    if (!menuItems.some(item => item.path === currentPath) && currentPath !== "editprofile") {
+  
+    // ✅ Allow `lead-details` and `editprofile` to open
+    if (!menuItems.some(item => item.path === currentPath) && !["editprofile", "lead-details"].includes(currentPath)) {
       navigate("/dashboard/cards", { replace: true });
     }
   }, [location.pathname, navigate]);

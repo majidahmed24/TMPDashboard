@@ -53,7 +53,7 @@ function Header() {
 
           {/* Dropdown Menu */}
           {dropdownOpen && (
-            <div className="absolute right-0 mt-2 top-10 bg-[#DBE9FF] w-40 shadow-lg rounded-lg p-2">
+            <div className="absolute z-50 right-0 mt-2 top-10 bg-[#DBE9FF] w-40 shadow-lg rounded-lg p-2">
               <div className="p-2 cursor-pointer" onClick={() => navigate("/dashboard/editprofile")}>
                 Edit Profile
               </div>
