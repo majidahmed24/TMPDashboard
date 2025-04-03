@@ -92,11 +92,20 @@ function Students() {
           <thead className="sticky top-0 bg-white shadow-md">
             <tr>
               {["S.No", "User ID", "Name", "Email", "Phone", "Status", "Role", "Date", "Action"].map((heading) => (
-                <th key={heading} className="py-3 px-4 text-center">{heading}</th>
+                <th key={heading} className="py-3 px-4 text-center">
+                   <div className="flex items-center justify-center gap-1">
+                    {heading}
+                    <IconArrowsSort
+                      size={16}
+                      className="cursor-pointer text-gray-500 mt-1"
+                    />
+                  </div>
+                 </th>
+               
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-white">
             {currentLeads.map((lead, index) => (
               <tr key={lead.id} className="border-b border-gray-600">
                 <td className="py-3 px-4 text-center">{indexOfFirstLead + index + 1}</td>
@@ -108,16 +117,144 @@ function Students() {
                 <td className="py-3 px-4 text-center">{lead.role}</td>
                 <td className="py-3 px-4 text-center">{lead.date}</td>
                 <td className="py-3 px-4 text-center flex gap-2">
-                  <button onClick={() => navigate("/dashboard/lead-details", { state: { lead } })}><IconEye size={18} /></button>
-                  <button onClick={() => { setModalType("edit"); setSelectedLead(lead); }}><IconEdit size={18} /></button>
-                  <button onClick={() => { setModalType("delete"); setSelectedLead(lead); }}><IconTrash size={18} /></button>
+                  <button className="text-[#34C759] bg-[#CAFFCA] p-1" onClick={() => navigate("/dashboard/student-details", { state: { lead } })}><IconEye size={18} /></button>
+                  <button   className="p-1 text-[#0000FF] bg-[#DFDFFF]" onClick={() => { setModalType("edit"); setSelectedLead(lead); }}><IconEdit size={18} /></button>
+                  <button className="p-1 text-[#FF0000] bg-[#FFDBDB]" onClick={() => { setModalType("delete"); setSelectedLead(lead); }}><IconTrash size={18} /></button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        
+      
+      </div>
+      {modalType === "edit" && selectedLead && (
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-50">
+          <div className="bg-white p-5 rounded-lg shadow-lg w-96 space-y-3 flex flex-col">
+            <h2 className="font-bold text-center text-xl mb-4">Edit Student</h2>
+            <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">Name</label>
+                  <input
+                    type="text"
+                    value={selectedLead.name}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">Email</label>
+                  <input
+                    type="text"
+                    value={selectedLead.mail}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">Phone Number</label>
+                  <input
+                    type="text"
+                    value={selectedLead.phone}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">Subscription Status</label>
+                  <input
+                    type="dropdown"
+                    value={selectedLead.mail}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">Status</label>
+                  <input
+                    type="text"
+                    value={selectedLead.status}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">Register Date</label>
+                  <input
+                    type="text"
+                    value={selectedLead.date}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                  <label className="font-medium">
+                    Role
+                  </label>
+                  <input
+                    type="text"
+                    value={selectedLead.role}
+                    readOnly
+                    className="border p-2 rounded bg-gray-100"
+                  />
+                </div>
+            <div className="flex justify-end gap-2">
+              <button className="bg-gray-300 px-4 py-2 rounded" onClick={() => setModalType(null)}>Cancel</button>
+              <button className="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
+            </div>
+          </div>
+        </div>
+      )}
+ {modalType === "delete" && selectedLead && (
+  <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-50">
+    <div className="bg-white p-5 rounded-lg shadow-lg w-96 flex flex-col items-center justify-center">
+      <img
+        src="/delete.png"
+        alt="Delete Confirmation"
+        className="w-16 h-16 mb-4"
+      />
+      <h2 className="font-bold text-xl mb-4 text-center">Are you Sure?</h2>
+      <p className="text-center mb-4">Are you sure you want to delete {selectedLead.name}?</p>
+      <div className="flex justify-center gap-2">
+        <button className="bg-gray-300 px-4 py-2 rounded" onClick={() => setModalType(null)}>Cancel</button>
+        <button className="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
       </div>
     </div>
+  </div>
+)}
+
+       {/* Pagination Section */}
+       {totalPages > 1 && (
+        <div className="p-4 flex justify-end items-center gap-2">
+          <button
+            className="px-3 py-1"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          {[...Array(totalPages)].map((_, pageIndex) => (
+            <button
+              key={pageIndex}
+              className="px-3 py-1"
+              onClick={() => setCurrentPage(pageIndex + 1)}
+            >
+              {pageIndex + 1}
+            </button>
+          ))}
+          <button
+            className="px-3"
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
+      
+    </div>
+    
   );
 }
 

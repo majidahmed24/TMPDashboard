@@ -25,7 +25,7 @@ function Sidebar() {
     setActiveItem(activeMenu);
   
     // ✅ Allow `lead-details` and `editprofile` to open
-    if (!menuItems.some(item => item.path === currentPath) && !["editprofile", "lead-details"].includes(currentPath)) {
+    if (!menuItems.some(item => item.path === currentPath) && !["editprofile", "lead-details","student-details"].includes(currentPath)) {
       navigate("/dashboard/cards", { replace: true });
     }
   }, [location.pathname, navigate]);

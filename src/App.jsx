@@ -13,6 +13,7 @@ import Subscribers from './Pages/Subscribers';
 import Cards from './Pages/Cards';
 import EditProfile from './Pages/EditProfile';
 import LeadDetails from './Pages/LeadDetails';
+import StudentDetails from './Pages/StudentDetails';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           <Route path="setting" element={<Setting />} />
           <Route path="editprofile" element={<EditProfile/>} />
           <Route path="lead-details" element={<LeadDetails />} />
-
+          <Route path="student-details" element={<StudentDetails />} />
         </Route>
 
         {/* Handle unknown routes */}
