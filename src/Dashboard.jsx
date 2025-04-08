@@ -5,8 +5,8 @@ import Header from "./Pages/Header";
 
 function Dashboard() {
   return (
-    <div className="flex">
-      <div className="p-4">
+    <div className="flex gap-2">
+      <div className="">
         <Sidebar />
       </div>
       <div className="w-full">

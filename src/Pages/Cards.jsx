@@ -39,7 +39,7 @@ const ApexChart = ({ title, type }) => {
   };
 
   return (
-    <div className="bg-white rounded-md shadow-lg flex flex-col w-[50%] h-40">
+    <div className="bg-white rounded-md shadow-lg flex flex-col w-full">
       <h3 className="text-sm p-3 font-semibold">{title}</h3>
       <ReactApexChart
         options={chartOptions.options}
@@ -53,11 +53,11 @@ const ApexChart = ({ title, type }) => {
 
 const TableComponent = ({ title, data }) => {
   return (
-    <div className="bg-white rounded-md shadow-lg w-[50%]">
+    <div className="bg-white rounded-md shadow-lg w-full">
       <h3 className="text-lg font-semibold mb-2 text-center bg-[#D9EBFF]">{title}</h3>
 
-      {/* Fix: Set a max height and enable scrolling */}
-      <div className="max-h-[80%] overflow-y-auto">
+      {/* Set fixed height for the scrollable area only */}
+      <div className="overflow-y-auto" style={{ maxHeight: "400px" }}>
         <table className="w-full border-collapse">
           <thead className="sticky top-0 bg-white">
             <tr className="border-b-2 border-gray-300">
@@ -84,8 +84,15 @@ const TableComponent = ({ title, data }) => {
 };
 
 
+
 function Cards() {
   const recentUsers = [
+    { name: "John Doe", plan: "Premium", phone: "9876543210" },
+    { name: "Jane Smith", plan: "Basic", phone: "8765432109" },
+    { name: "Alice Brown", plan: "Standard", phone: "7654321098" },
+    { name: "John Doe", plan: "Premium", phone: "9876543210" },
+    { name: "Jane Smith", plan: "Basic", phone: "8765432109" },
+    { name: "Alice Brown", plan: "Standard", phone: "7654321098" },
     { name: "John Doe", plan: "Premium", phone: "9876543210" },
     { name: "Jane Smith", plan: "Basic", phone: "8765432109" },
     { name: "Alice Brown", plan: "Standard", phone: "7654321098" },
@@ -101,10 +108,10 @@ function Cards() {
   ];
 
   return (
-    <div className="pr-2 text-sm">
-      <div className="flex justify-between mb-5">
+    <div className="h-[calc(100vh-80px)] overflow-y-auto pr-2 text-xs">
+      <div className="grid md:grid-cols-4 gap-3 mb-5">
         {["Total User", "Subscriptions", "Total Lead", "Experiment Count"].map((title, index) => (
-          <div key={index} className="bg-white flex gap-5 py-3 items-center px-14 rounded-md shadow-md">
+          <div key={index} className="bg-white flex gap-5 py-3 items-center px-5 rounded-md shadow-md">
             <div className="bg-[#EFEFEF] rounded-full p-2 font-bold">
             <IconFolderDown stroke={2} />
             </div>
@@ -117,12 +124,13 @@ function Cards() {
         ))}
       </div>
 
-      <div className="flex justify-center gap-5 mb-2">
-        <ApexChart title="Subscribers & Non Subscribers" type="donut" />
+      <div className="grid md:grid-cols-2 gap-2 mb-5">
+        <ApexChart title="Subscribers & Non Subscribers" type=""/>
         {/**/ }<ApexChart title="Non Subscribers" type="" />
       </div>
 
-      <div className="flex justify-center gap-4 h-[38vh]">
+      <div className="grid md:grid-cols-2 gap-2">
+
         <TableComponent title="Recent Users" data={recentUsers} />
         <TableComponent title="Recent Subscribers" data={recentSearches} />
       </div>
