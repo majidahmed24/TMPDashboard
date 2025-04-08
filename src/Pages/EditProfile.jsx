@@ -38,8 +38,8 @@ function EditProfile() {
 
       {/* Render Form Below the Buttons */}
       {isModalOpen && (
-        <div className="flex justify-center">
-          <div className=" bg-white p-5 rounded-lg shadow-lg mt-5 w-[400px] border">
+        <div className="flex items-center justify-center">
+          <div className="flex flex-col justify-center bg-white p-5 rounded-lg shadow-lg mt-5 border">
             {/* Edit Profile Form */}
             {modalType === "editProfile" && (
               <form className="flex flex-col gap-3">
@@ -79,15 +79,15 @@ function EditProfile() {
                     <label className="text-sm font-medium text-gray-600">
                       Password
                     </label>
-                    <input type="text" className="border p-2 rounded" />
+                    <input type="text" className="border p-2 rounded w-96" />
                   </div>
                   <div className="flex flex-col ">
                     <label className="text-sm font-medium text-gray-600">
                       Confirm Password
                     </label>
-                    <input type="text" className="border p-2 rounded" />
+                    <input type="text" className="border p-2 rounded w-96" />
                     <p className="font-bold">Important Note</p>
-                    <p className="text-sm">Password must contain at least one capital letter, one small letter, one number, one special character and it should be minimum 9 characters </p>
+                    <p className="text-sm w-96">Password must contain at least one capital letter, one small letter, one number, one special character and it should be minimum 9 characters </p>
                     <p>Example: Pass@2020</p>
                   </div>
               </form>
@@ -96,12 +96,12 @@ function EditProfile() {
             {/* Buttons */}
             <div className="flex justify-center gap-2 mt-4">
               <button
-                className="px-10 py-2 border border-[#EF8038] text-[#EF8038] rounded"
+                className="px-10 py-2 border border-[#EF8038] text-[#EF8038] rounded cursor-pointer"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel
               </button>
-              <button className="px-10 py-2 bg-[#EF8038] text-white rounded">
+              <button className="px-10 py-2 bg-[#EF8038] text-white rounded cursor-pointer">
                 Save
               </button>
             </div>
