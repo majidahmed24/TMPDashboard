@@ -36,7 +36,7 @@ function Packages() {
   const currentLeads = leads.slice(indexOfFirstLead, indexOfLastLead);
 
   return (
-    <div className="h-screen flex flex-col text-sm">
+    <div className="h-[calc(100vh-80px)] flex flex-col text-sm">
       {/* Header Section */}
       <div className="p-5 flex justify-between items-center relative">
         <p className="text-lg font-semibold">Packages</p>
@@ -95,7 +95,7 @@ function Packages() {
       </div>
 
       {/* Scrollable Table Section */}
-      <div className="flex overflow-auto h-[60%] p-2">
+      <div className="flex overflow-auto p-2">
         <table className="w-full">
           <thead className="sticky top-0 bg-white shadow-md">
             <tr>

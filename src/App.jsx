@@ -4,16 +4,17 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import Experiment from './Pages/Experiment';
 import Leaderboard from './Pages/Leaderboard';
-import LeadManagement from './Pages/LeadManagement';
+
 import Packages from './Pages/Packages';
 import Report from './Pages/Report';
 import Setting from './Pages/Setting';
-import Students from './Pages/Students';
+import Students from './Components/Student/Students';
 import Subscribers from './Pages/Subscribers';
 import Cards from './Pages/Cards';
 import EditProfile from './Pages/EditProfile';
 import LeadDetails from './Pages/LeadDetails';
 import StudentDetails from './Pages/StudentDetails';
+import LeadManagement from './Components/LeadManegement/LeadManagement';
 
 function App() {
   return (
@@ -25,8 +26,8 @@ function App() {
         {/* Dashboard Layout with Nested Routes */}
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="cards" element={<Cards />} />
-          <Route path="leadmanagement" element={<LeadManagement />} />
-          <Route path="students" element={<Students />} />
+          <Route path="leadmanagement" element={<LeadManagement/>} />
+          <Route path="students" element={<Students/>} />
           <Route path="subscribers" element={<Subscribers />} />
           <Route path="experiment" element={<Experiment />} />
           <Route path="leaderboard" element={<Leaderboard />} />

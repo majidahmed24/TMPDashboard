@@ -14,9 +14,9 @@ function Subscribers() {
   
 
   const plans = [
-    { id: 1, name: "Basic Plan", price: 56, strikePrice: 60, features: ["Feature 1 added successfully", "Feature 2 added successfully ", "Feature 3 added successfully"] },
-    { id: 2, name: "Standard Plan", price: 75, strikePrice: 80, features: ["Feature A", "Feature B", "Feature C"] },
-    { id: 3, name: "Premium Plan", price: 100, strikePrice: 120, features: ["Feature X", "Feature Y", "Feature Z"] },
+    { id: 1, name: "Basic Plan", price: 56, strikePrice: 60, features: ["Feature 1 added successfully", "Feature 2 added successfully ", "Feature 3 added successfully","Feature 1 added successfully", "Feature 2 added successfully ", "Feature 3 added successfully"] },
+    { id: 2, name: "Standard Plan", price: 75, strikePrice: 80, features: ["Feature A", "Feature B", "Feature C","Feature A", "Feature B", "Feature C"] },
+    { id: 3, name: "Premium Plan", price: 100, strikePrice: 120, features: ["Feature X", "Feature Y", "Feature Z","Feature A", "Feature B", "Feature C"] },
     { id: 4, name: "Basic Plan", price: 56, strikePrice: 60, features: ["Feature 1", "Feature 2", "Feature 3"] },
     { id: 5, name: "Standard Plan", price: 75, strikePrice: 80, features: ["Feature A", "Feature B", "Feature C"] },
     { id: 6, name: "Premium Plan", price: 100, strikePrice: 120, features: ["Feature X", "Feature Y", "Feature Z"] }
@@ -63,9 +63,9 @@ function Subscribers() {
         <div className="">
           {/* Edit Profile Form */}
           {modalType === "subscription_plan" && (
-            <div className="grid grid-cols-3 gap-5 h-[60vh] overflow-y-auto mt-5">
+            <div className="grid grid-cols-3 gap-5 h-[calc(100vh-210px)] overflow-y-auto mt-5">
               {plans.map((plan) => (
-                <div key={plan.id} className="border p-5 rounded shadow-lg text-center">
+                <div key={plan.id} className="border bg-white  text-xl rounded shadow-lg text-center h-[60vh] flex flex-col justify-center">
                   <h2 className="font-bold text-xl">{plan.name}</h2>
                   <p className="text-gray-500">
                     <span className="line-through text-xl">${plan.strikePrice}</span> ${plan.price} per month

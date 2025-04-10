@@ -34,7 +34,7 @@ function StudentDetails() {
   }
 
   return (
-    <div className="">
+    <div className="h-[calc(100vh-80px)] overflow-auto">
       <div className="flex justify-end mb-2 mr-2 gap-2">
         <button
           className="p-2 border border-bg-[#151C39] text-[#151C39] rounded-md"
@@ -49,8 +49,8 @@ function StudentDetails() {
           Edit Profile
         </button>
       </div>
-      <div className="flex gap-2 mb-2 justify-between">
-        <div className="w-96 bg-white p-5 rounded-lg shadow-md">
+      <div className="grid md:grid-cols-3 gap-1 mb-5">
+        <div className="w-full bg-white p-5 rounded-lg shadow-md">
           <h2 className="font-bold mb-4">Student Profile</h2>
           <p className="flex justify-between">
             <strong>Name</strong> {lead.name}
@@ -71,10 +71,10 @@ function StudentDetails() {
             <strong>Leaderboard Ranking</strong> {lead.assign}
           </p>
         </div>
-        <div className="bg-white p-2 w-64">
+        <div className="bg-white p-2 w-full">
         <p>Experiment Progress</p>
         </div>
-        <div className="bg-white w-96">
+        <div className="bg-white w-full p-1">
           <p className="font-bold p-5">Roles Assignment</p>
 
           <div className="flex flex-col justify-center p-1">
@@ -87,8 +87,8 @@ function StudentDetails() {
           </div>
         </div>
       </div>
-      <div className="max-h-[33vh] overflow-auto  bg-white rounded-lg shadow-md text-sm">
-        <table className="w-full border-collapse h-[10%]">
+      <div className=" overflow-auto  bg-white rounded-lg shadow-md text-sm">
+        <table className="w-full border-collapse">
           <thead className="sticky top-0 bg-white shadow-md">
             <tr>
               {["S.No", "Grade", "Experiment Progress", "Last Login Date"].map(

@@ -58,7 +58,9 @@ function Sidebar() {
         ${isOpen ? "translate-x-0" : "-translate-x-full"} w-50 md:translate-x-0 md:static`}
       >
        <div className="text-xs h-screen bg-white">
-          <img src="./logo.png" alt="Logo" className="h-25 w-30" />
+       <div className="flex justify-center">
+  <img src="./logo.png" alt="Logo" className="h-25 w-30" />
+</div>
           <ul className="mt-4">
             {menuItems.map((item, index) => (
               <li key={index} className="mb-1">

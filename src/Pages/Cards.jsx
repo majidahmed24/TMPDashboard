@@ -109,7 +109,7 @@ function Cards() {
 
   return (
     <div className="h-[calc(100vh-80px)] overflow-y-auto pr-2 text-xs">
-      <div className="grid md:grid-cols-4 gap-3 mb-5">
+      <div className="grid md:grid-cols-4 gap-3 mb-2">
         {["Total User", "Subscriptions", "Total Lead", "Experiment Count"].map((title, index) => (
           <div key={index} className="bg-white flex gap-5 py-3 items-center px-5 rounded-md shadow-md">
             <div className="bg-[#EFEFEF] rounded-full p-2 font-bold">
@@ -124,7 +124,7 @@ function Cards() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-2 mb-5">
+      <div className="grid md:grid-cols-2 gap-2 mb-2">
         <ApexChart title="Subscribers & Non Subscribers" type=""/>
         {/**/ }<ApexChart title="Non Subscribers" type="" />
       </div>

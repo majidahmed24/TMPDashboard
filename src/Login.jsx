@@ -65,7 +65,7 @@ function Login() {
               </div>
 
               <button
-                onClick={() => navigate("/dashboard")}
+                onClick={() => navigate("/dashboard/cards")}
                 className="w-96 bg-[#151C39] text-white p-2 rounded-md mt-2 cursor-pointer"
               >
                 Login

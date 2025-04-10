@@ -34,7 +34,7 @@ function LeadManagement() {
   const currentLeads = leads.slice(indexOfFirstLead, indexOfLastLead);
 
   return (
-    <div className="h-screen flex flex-col text-sm">
+    <div className="h-[calc(100vh-80px)] flex flex-col text-sm">
       {/* Header Section */}
       <div className="p-5 flex justify-between items-center relative">
         <p className="text-lg font-semibold">Lead Management</p>
@@ -93,9 +93,9 @@ function LeadManagement() {
       </div>
 
       {/* Scrollable Table Section */}
-      <div className="flex overflow-auto h-[60%] p-2">
-        <table className="w-full">
-          <thead className="sticky top-0 bg-white shadow-md">
+      <div className="flex overflow-auto p-2 ">
+        <table className="w-full rounded-md ">
+          <thead className="sticky top-0 bg-white shadow-md rounded-md">
             <tr>
               {[
                 "S.No",

@@ -25,7 +25,7 @@ function LeadDetails() {
   }
 
   return (
-    <div className="">
+    <div className="h-[calc(100vh-90px)] overflow-auto">
       <div className="flex justify-end mb-2 mr-2">
         <button
           className="p-2 bg-[#151C39] text-white rounded-md"
@@ -75,8 +75,8 @@ function LeadDetails() {
           </div>
         </div>
       </div>
-      <div className="max-h-[33vh] overflow-auto  bg-white rounded-lg shadow-md text-sm">
-        <table className="w-full border-collapse h-[10%]">
+      <div className="overflow-auto  bg-white rounded-lg shadow-md text-sm">
+        <table className="w-full border-collapse ">
           <thead className="sticky top-0 bg-white shadow-md">
             <tr>
               {["S.No", "Name", "Date", "Notes", "Next Follow-up Date"].map(
@@ -126,6 +126,48 @@ function LeadDetails() {
                 date: "2025-04-01",
                 notes: "Interested in premium package",
                 followUp: "2025-04-05",
+              },
+              {
+                id: 2,
+                name: "Jane Smith",
+                date: "2025-04-02",
+                notes: "Requires discount details",
+                followUp: "2025-04-06",
+              },
+              {
+                id: 2,
+                name: "Jane Smith",
+                date: "2025-04-02",
+                notes: "Requires discount details",
+                followUp: "2025-04-06",
+              },
+              {
+                id: 2,
+                name: "Jane Smith",
+                date: "2025-04-02",
+                notes: "Requires discount details",
+                followUp: "2025-04-06",
+              },
+              {
+                id: 2,
+                name: "Jane Smith",
+                date: "2025-04-02",
+                notes: "Requires discount details",
+                followUp: "2025-04-06",
+              },
+              {
+                id: 2,
+                name: "Jane Smith",
+                date: "2025-04-02",
+                notes: "Requires discount details",
+                followUp: "2025-04-06",
+              },
+              {
+                id: 2,
+                name: "Jane Smith",
+                date: "2025-04-02",
+                notes: "Requires discount details",
+                followUp: "2025-04-06",
               },
             ].map((lead, index) => (
               <tr key={lead.id} className="border-b border-gray-300">
