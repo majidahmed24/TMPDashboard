@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   IconEye,
   IconEdit,
@@ -7,7 +8,8 @@ import {
   IconFilter,
   IconChevronDown,
 } from "@tabler/icons-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import axios
+// other imports...
 
 function Students() {
   const navigate = useNavigate();
@@ -17,20 +19,32 @@ function Students() {
   const [modalType, setModalType] = useState(null);
   const [selectedLead, setSelectedLead] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [leads, setLeads] = useState([]);
 
-  const statusOptions = ["New", "Pending", "Converted", "Loss", "Follow Up"];
-  const leads = Array.from({ length: 20 }, (_, index) => ({
-    id: `LD-00${index + 1}`,
-    name: `John Doe ${index + 1}`,
-    date: "2024-03-28",
-    mail: "karan@gmail.com",
-    phone: "1234567890",
-    role: "Admin",
-    source: index % 2 === 0 ? "Referral" : "Website",
-    status: statusOptions[index % statusOptions.length],
-    assign: "Alex Smith",
-  }));
+  // Fetch leads from API
+  useEffect(() => {
+    const fetchLeads = async () => {
+      try {
+        const response = await axios.get("https://tmpapi.onrender.com/users/getall");
+        const formattedLeads = response.data.map((user, index) => ({
+          id: user._id.slice(-4), // e.g., last 4 characters as ID
+          name: user.name,
+          mail: user.email,
+          phone: user.phoneNumber,
+          role: "Student", // default role, since not in API
+          date: "2025-04-23", // static or createAt if available
+          status: "Active", // default status
+          source: "Website", // assumed value
+          assign: "Admin", // assumed value
+        }));
+        setLeads(formattedLeads);
+      } catch (error) {
+        console.error("Error fetching leads:", error);
+      }
+    };
 
+    fetchLeads();
+  }, []);
   const filterOptions = {
     Date: ["Today", "Last 7 Days", "This Month", "Last 30 Days", "This Year", "Custom Date"],
     Grade: ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
