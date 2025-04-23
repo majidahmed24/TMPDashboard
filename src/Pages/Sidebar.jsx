@@ -24,10 +24,10 @@ function Sidebar() {
     { name: "Dashboard", icon: <IconLayoutDashboard stroke={2} />, path: "cards" },
     { name: "Lead Management", icon: <IconBrandMyOppo stroke={2} />, path: "leadmanagement" },
     { name: "Students", icon: <IconUsers stroke={2} />, path: "students" },
-    { name: "Subscribers", icon: <IconListTree stroke={2} />, path: "subscribers" },
+    { name: "Packages", icon: <IconWallet stroke={2} />, path: "subscribers" },
     { name: "Experiment", icon: <IconTableShare stroke={2} />, path: "experiment" },
     { name: "Leaderboard", icon: <IconFocus2 stroke={2} />, path: "leaderboard" },
-    { name: "Packages", icon: <IconWallet stroke={2} />, path: "packages" },
+    { name: "Subscribers", icon: <IconListTree stroke={2} />, path: "packages" },
     { name: "Report", icon: <IconMessageReport stroke={2} />, path: "report" },
     { name: "Settings", icon: <IconSettings stroke={2} />, path: "setting" },
   ];
